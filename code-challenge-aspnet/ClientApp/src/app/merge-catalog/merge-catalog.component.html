@@ -1,0 +1,18 @@
+<h1 id="tableLabel">Unity Catalog</h1>
+
+<p *ngIf="!mergeCatalog"><em>Loading...</em></p>
+<div>
+  <button type="button" id="btnCompanyM" class="btn btn-outline-primary" (click)="showCompanyM($event)">Company Merge</button>
+  <button type="button" id="btnCompanyA" class="btn btn-outline-primary" (click)="showCompanyA($event)">Company A</button>
+  <button type="button" id="btnCompanyB" class="btn btn-outline-primary" (click)="showCompanyB($event)">Company B</button>
+</div>
+
+<div *ngIf="showMerge" class="companyMshow">
+  <company-catalog [catalogs]="mergeCatalog" [company]="companySource" [allowDelete]="enableDelete"></company-catalog>
+</div>
+<div *ngIf="showA" class="companyAshow">
+  <company-catalog [catalogs]="companyA" [company]="companySource" [allowDelete]="enableDelete" ></company-catalog>
+</div>
+<div *ngIf="showB" class="companyBshow">
+  <company-catalog [catalogs]="companyB" [company]="companySource" [allowDelete]="enableDelete"></company-catalog>
+</div>

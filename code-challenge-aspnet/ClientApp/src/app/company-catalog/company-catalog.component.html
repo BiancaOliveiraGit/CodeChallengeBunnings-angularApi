@@ -1,0 +1,48 @@
+
+<p>Catalog From Company {{company}}</p>
+
+<table class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th>SKU</th>
+      <th>Product Description</th>
+      <th>Source</th>
+      <th *ngIf="allowDelete">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let catalog of catalogs">
+      <td>{{ catalog.sku }}</td>
+      <td>{{ catalog.description }}</td>
+      <td>{{ catalog.source }}</td>
+      <td>
+        <button *ngIf="allowDelete" type="button" id="delButton" class="btn btn-primary" (click)="productDelete(catalog)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<form *ngIf="allowDelete && description !== undefined" #formProduct="ngForm" (ngSubmit)="addProduct()">
+   <h4>Add Product To Catalog</h4>
+  <label>Product Name:</label>
+    <input type="text"
+           [(ngModel)]="description" name="productDesc" >
+    <label>SKU:</label>
+    <input type="text"
+           [(ngModel)]="sku"  name="productSku">
+    <button type="submit">Add</button>
+</form>
+<br />
+<form *ngIf="allowDelete && description !== undefined" #formSupplier="ngForm" (ngSubmit)="putProduct()">
+  <h4>Add Supplier & Barcode To Product</h4>
+  <label>Enter Existing Product Sku:</label>
+  <input type="text"
+         [(ngModel)]="updateSku" name="patchSku">
+  <label>Supplier:</label>
+  <input type="text"
+         [(ngModel)]="updateSupplier" name="patchSupplier">
+  <label>Barcode:</label>
+  <input type="text"
+         [(ngModel)]="updateBarcode" name="patchBarcode">
+  <button type="submit">Add</button>
+</form>
