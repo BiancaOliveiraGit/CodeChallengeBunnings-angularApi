@@ -14,3 +14,12 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.companyBtn {
+    display:flex;
+}
+
+.btn-outline-primary {
+  flex: 1 1 0;
+  width: 0;
+}

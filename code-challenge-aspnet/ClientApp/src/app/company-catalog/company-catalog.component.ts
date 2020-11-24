@@ -61,7 +61,7 @@ export class CompanyCatalogComponent implements OnInit{
 
 
   putProduct(): void {
-    let updateProduct: UpdateCatalogDto = { sku: this.updateSku, source: this.company, supplierDescription: this.updateSupplier, barcode: this.updateBarcode };
+    let updateProduct: UpdateCatalogDto = { sku: this.updateSku, source: this.company, supplierName: this.updateSupplier, barcode: this.updateBarcode };
 
     const options = {
       headers: new HttpHeaders({
@@ -76,7 +76,7 @@ export class CompanyCatalogComponent implements OnInit{
   }
 }
 
-
+// TODO put into another folder not in component
 interface Catalog {
   source: string;
   sku: string;
@@ -86,6 +86,6 @@ interface Catalog {
 interface UpdateCatalogDto {
   source: string;
   sku: string;
-  supplierDescription: string;
+  supplierName: string;
   barcode: string;
 }

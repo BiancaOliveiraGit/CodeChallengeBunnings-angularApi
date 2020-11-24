@@ -12,11 +12,6 @@ namespace code_challenge_aspnet.Controllers
     [Route("[controller]")]
     public class CatalogController : ControllerBase
     {
-        //private static readonly string[] Summaries = new[]
-        //{
-        //    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        //};
-
         private readonly ILogger<CatalogController> _logger;
 
         public CatalogController(ILogger<CatalogController> logger)
@@ -24,8 +19,7 @@ namespace code_challenge_aspnet.Controllers
             _logger = logger;
         }
        
-
-        // get catalogs 
+        //TODO update all routes to be async
         [HttpGet]
         public CatalogCollection Get()
         {
@@ -45,9 +39,9 @@ namespace code_challenge_aspnet.Controllers
         }
 
         [HttpPut]
-        public List<Catalog> Put([FromBody] Catalog catalog)
+        public List<Catalog> Put([FromBody] UpdateCatalogDto catalog)
         {
-            return AddCommand.AddCatalog(catalog);
+            return AddCommand.UpdateCatalog(catalog);
         }
     }
 }
