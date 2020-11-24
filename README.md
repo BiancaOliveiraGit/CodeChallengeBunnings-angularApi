@@ -1,12 +1,12 @@
-CodeChallengeBunnings-angularApi
+##CodeChallengeBunnings-angularApi
 
 ## To run in debug 
 serve the angular project
- # in console 
+in console :
  - change directory : cd /ClientApp
  - npm start
  
-# run visual studio C# project in debug 
+run visual studio C# project in debug 
 - uses IIS to run api service on local host
 
 # outstanding items
